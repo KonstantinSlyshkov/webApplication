@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - test@localhost" uuid="6a7e81d7-c9bb-4c5b-9b1e-593abb929393">
+    <database-info product="MySQL" version="5.5.43-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="test"/>
+    <table name="CUSTOMERS" schema="" catalog="test" type="TABLE">
+      <column name="CUSTOMER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="COMPANY_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CONTACT_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CONTACT_TITLE" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ADDRESS" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="CUSTOMER_ID"/>
+      <exported-key name="ORDERS_ibfk_1" table="ORDERS" schema="" catalog="test" columns="CUSTOMER_ID"/>
+    </table>
+    <table name="EMPLOYEES" schema="" catalog="test" type="TABLE">
+      <column name="EMPLOYEE_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="LAST_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="FIRST_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="TITLE" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="BIRTH_DATE" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="HIRE_DATE" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="ADRESS" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="EMPLOYEE_ID"/>
+      <exported-key name="ORDERS_ibfk_2" table="ORDERS" schema="" catalog="test" columns="EMPLOYEE_ID"/>
+    </table>
+    <table name="ORDERS" schema="" catalog="test" type="TABLE">
+      <column name="ORDER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="CUSTOMER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="EMPLOYEE_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ORDER_DATE" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="SHIPPED_DATE" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="SHIP_ADRESS" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="VERSION" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ORDER_ID"/>
+      <foreign-key name="ORDERS_ibfk_1" columns="CUSTOMER_ID" ref-table="CUSTOMERS" ref-schema="" ref-catalog="test" ref-columns="CUSTOMER_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="ORDERS_ibfk_2" columns="EMPLOYEE_ID" ref-table="EMPLOYEES" ref-schema="" ref-catalog="test" ref-columns="EMPLOYEE_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="ORDER_DETAILS_ibfk_1" table="ORDER_DETAILS" schema="" catalog="test" columns="ORDER_ID"/>
+    </table>
+    <table name="ORDER_DETAILS" schema="" catalog="test" type="TABLE">
+      <column name="ORDER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="COMMODITY" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="RETAIL_PRICE" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="QUANTITY" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="DISCOUNT" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ORDER_ID,COMMODITY"/>
+      <foreign-key name="ORDER_DETAILS_ibfk_1" columns="ORDER_ID" ref-table="ORDERS" ref-schema="" ref-catalog="test" ref-columns="ORDER_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+  </data-source>
+  <data-source name="MySQL - application@localhost" uuid="7d2398ed-8609-4e5d-84fa-80fa7a7c7142">
+    <database-info product="MySQL" version="5.5.43-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="application"/>
+    <table name="CUSTOMERS" schema="" catalog="application" type="TABLE">
+      <column name="CUSTOMER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="COMPANY_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CONTACT_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CONTACT_TITLE" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ADDRESS" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="CUSTOMER_ID"/>
+      <exported-key name="ORDERS_ibfk_1" table="ORDERS" schema="" catalog="application" columns="CUSTOMER_ID"/>
+    </table>
+    <table name="EMPLOYEES" schema="" catalog="application" type="TABLE">
+      <column name="EMPLOYEE_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="LAST_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="FIRST_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="TITLE" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="BIRTH_DATE" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="HIRE_DATE" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="ADRESS" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="EMPLOYEE_ID"/>
+      <exported-key name="ORDERS_ibfk_2" table="ORDERS" schema="" catalog="application" columns="EMPLOYEE_ID"/>
+    </table>
+    <table name="ORDERS" schema="" catalog="application" type="TABLE">
+      <column name="ORDER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="CUSTOMER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="EMPLOYEE_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ORDER_DATE" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="SHIPPED_DATE" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="SHIP_ADRESS" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ORDER_ID"/>
+      <foreign-key name="ORDERS_ibfk_1" columns="CUSTOMER_ID" ref-table="CUSTOMERS" ref-schema="" ref-catalog="application" ref-columns="CUSTOMER_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="ORDERS_ibfk_2" columns="EMPLOYEE_ID" ref-table="EMPLOYEES" ref-schema="" ref-catalog="application" ref-columns="EMPLOYEE_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="ORDER_DETAILS_ibfk_1" table="ORDER_DETAILS" schema="" catalog="application" columns="ORDER_ID"/>
+    </table>
+    <table name="ORDER_DETAILS" schema="" catalog="application" type="TABLE">
+      <column name="ORDER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="COMMODITY" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="RETAIL_PRICE" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="QUANTITY" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="DISCOUNT" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ORDER_ID,COMMODITY"/>
+      <foreign-key name="ORDER_DETAILS_ibfk_1" columns="ORDER_ID" ref-table="ORDERS" ref-schema="" ref-catalog="application" ref-columns="ORDER_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+  </data-source>
+</component>
