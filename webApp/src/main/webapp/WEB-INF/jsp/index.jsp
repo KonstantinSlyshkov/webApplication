@@ -2,19 +2,21 @@
 <%@ taglib prefix="stripes" uri="http://stripes.sourceforge.net/stripes.tld"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<html>
-<head><title></title></head>
-<body>
-<stripes:form id="allOrdersForm" beanclass="stripes.controller.OrdersAction">
+<style>
+	.hidden {
+		display: none;
+	}
+</style>
+<stripes:form id="allOrdersForm" beanclass="stripes.controller.OrdersAction" class="hidden">
 	<c:if test="${orders!=null}">
 	<table class="ordersTable">
-<%--		<tr>
+		<tr>
 			<td>Customer:</td>
 			<td>Employee:</td>
 			<td>Order Date:</td>
 			<td>Shipped Date:</td>
 			<td>Ship Address:</td>
-		</tr>--%>
+		</tr>
 		<tr>
 			<c:forEach var="order" items="${orders}">
 				<td>
@@ -37,5 +39,3 @@
 	</table>
 	</c:if>
 </stripes:form>
-</body>
-</html>

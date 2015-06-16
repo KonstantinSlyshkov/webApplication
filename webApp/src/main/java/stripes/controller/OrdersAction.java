@@ -25,11 +25,13 @@ public class OrdersAction implements ActionBean {
 
 	@DefaultHandler
 	public Resolution view() {
-		orders = orderService.getAllOrders();
-
 		return new ForwardResolution(DEFAULT_PATH);
 	}
 
+	public Resolution findAllOrders() {
+		orders = orderService.getAllOrders();
+		return new ForwardResolution(DEFAULT_PATH);
+	}
 
 	public ActionBeanContext getContext() { return context; }
 
