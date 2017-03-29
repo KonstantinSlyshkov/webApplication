@@ -70,7 +70,7 @@ public class OrderDAOTest extends DataBaseTest {
 	@Override
 	public Class[] getClassesToDelete() {
 		return new Class[] {
-				Order.class,
+				Orde.class,
 				Employee.class,
 				Customer.class
 		};
