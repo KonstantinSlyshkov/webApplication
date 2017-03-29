@@ -53,7 +53,6 @@ public class OrderDAOTest extends DataBaseTest {
 		order.setOrderDate(new Date());
 		order.setShipAddress("shipAdress");
 		order.setShippedDate(new Date());
-		order.setVersion(13);
 		getDaoSupport().save(order);
 	}
 
@@ -70,7 +69,7 @@ public class OrderDAOTest extends DataBaseTest {
 	@Override
 	public Class[] getClassesToDelete() {
 		return new Class[] {
-				Orde.class,
+				Order.class,
 				Employee.class,
 				Customer.class
 		};
