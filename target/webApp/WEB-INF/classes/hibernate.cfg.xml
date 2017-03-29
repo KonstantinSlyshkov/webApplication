@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+		<property name="hibernate.format_sql"/> <!--true false Pretty print the SQL in the log and console-->
+		<property name="hibernate.default_catalog"/> <!--specify catalog for mapping-->
+		<property name="hibernate.max_fetch_depth"/> <!--Sets a maximum "depth" for the outer join fetch-->
+		<property name="hibernate.default_batch_fetch_size"/> <!--sets default batch size 4, 8, 16-->
+		<property name="hibernate.order_updates"/> <!--Forces Hibernate to order SQL updates by the primary key value of the items being updated-->
+		<property name="hibernate.generate_statistics"/> <!--If enabled, Hibernate will collect statistics useful for performance tuning.-->
+		<property name="hibernate.use_identifier_rollback"/> <!--If enabled, generated identifier properties will be reset to default values when objects are deleted-->
+		<property name="hibernate.use_sql_comments"/> <!--If turned on, Hibernate will generate comments inside the SQL, for easier debugging-->
+		
+		<!--JDBC properties-->
+		<property name="hibernate.jdbc.fetch_size"/> <!--A non-zero value determines the JDBC fetch size-->
+		<property name="hibernate.jdbc.batch_size"/>  <!--A non-zero value enables use of JDBC2 batch updates. Recom 5-30 -->
+		<property name="hibernate.jdbc.batch_versioned_data"/> <!--JDBC driver returns correct row counts from executeBatch(). Hibernate will then use batched DML for automatically versioned data-->
+		
+		<!--Cache properties-->
+		<property name="hibernate.cache.provider_class"/> <!--The className of CacheProvider-->
+		<property name="hibernate.cache.use_minimal_puts"/> <!--Optimizes second-level cache operation to minimize writes, at the cost of more frequent reads. This setting is most useful for clustered caches-->
+		<property name="hibernate.cache.use_query_cache"/> <!--Enables the query cache-->
+		<property name="hibernate.cache.query_cache_factory"/> <!--The classname of a custom QueryCache interface, defaults to the built-in StandardQueryCache-->
+		<property name="hibernate.cache.use_structured_entries"/> <!--Forces Hibernate to store data in the second-level cache in a more human-friendly format-->
+		<property name="hibernate.cache.auto_evict_collection_cache"/> <!--Enables the automatic eviction of a bi-directional association's collection cache when an element in the ManyToOne collection is added/updated/removed without properly managing the change on the OneToMany side-->
+		<property name="hibernate.cache.default_cache_concurrency_strategy"/> <!--Setting used to give the name of the default strategy-->
+		
+		<!--Transactions properties-->
+		<property name="hibernate.transaction.factory_class"/> <!--The classname of a TransactionFactory to use with Hibernate Transaction API-->
+		<property name="hibernate.transaction.manager_lookup_class"/> <!--The classname of a TransactionManagerLookup. It is required when JVM-level caching is enabled or when using hilo generator in a JTA environment-->
+		<property name="hibernate.transaction.flush_before_completion"/> <!--If enabled, the session will be automatically flushed during the before completion phase of the transaction-->
+		<property name="hibernate.transaction.auto_close_session"/> <!--If enabled, the session will be automatically closed during the after completion phase of the transaction.-->
+		
+		<!--other properties-->
+		<property name="hibernate.hbm2ddl.auto"/> <!--Automatically validates or exports schema DDL  to the database when SessionFactory created-->
+		<property name="hibernate.hbm2ddl.import_files"/>  <!--Comma-separated names of the optional files containing SQL DML statements executed during the SessionFactory creation.-->
+		<property name="hibernate.ejb.naming_strategy"/> <!--or--> <property name="hibernate.ejb.naming_strategy_delegator"/>
+
+		<mapping class="stripes.model.Employee"/>
+		<mapping class="stripes.model.Customer"/>
+		<mapping class="stripes.model.Order"/>
+		<mapping class="stripes.model.OrderDetail"/>
+		<mapping class="stripes.model.Son"/>
+		<mapping class="stripes.model.Daughter"/>
+		<mapping class="stripes.model.Father"/>
+
+	</session-factory>
+
+</hibernate-configuration>
