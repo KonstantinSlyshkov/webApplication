@@ -3,9 +3,6 @@ machine:
     version: oraclejdk8
   environment:
     test: "hello"
-
-deployment:
-  master:
-    branch: master
-    commands:
-      - echo $test
+test:
+  override:
+    - echo $test
