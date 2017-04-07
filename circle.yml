@@ -1,10 +1,10 @@
 machine:
   java:
     version: oraclejdk8
-  environment:
-    test: hello
 
 test:
   override:
    commands:
+       environment:
+       test: hello
     - echo $test
