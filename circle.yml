@@ -1,16 +1,10 @@
 machine:
   java:
     version: oraclejdk8
+  environment:
+    test: hello
 
 test:
   override:
-    # default CircleCI test action is 'mvn integration-test'
-    - mvn test
-
-deployment:
-  develop:
-    branch: develop
-    commands:
-      - mvn install
-
-
+   commands:
+    - echo $test
