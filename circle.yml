@@ -3,4 +3,4 @@ machine:
     version: oraclejdk8
 test:
   override:
-    - if [[ -z "${test}" ]]; then echo "unknown"; else echo $test; fi
+    - if [[ -z "${test}" ]]; mvn test; else mvn install; fi
