@@ -3,4 +3,4 @@ machine:
     version: oraclejdk8
 test:
   override:
-    - if [[ -z "${test}" ]]; mvn test; else mvn install; fi
+    - if [[ -z "${test}" ]]; then mvn test; else mvn install; fi
