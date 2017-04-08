@@ -1,6 +1,8 @@
 machine:
   java:
     version: oraclejdk8
+  environment:
+    test: "hello"
 test:
   override:
     - echo $test
