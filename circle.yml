@@ -3,5 +3,4 @@ machine:
     version: oraclejdk8
 test:
   override:
-   commands:
-    - if [[ -z "${test}" ]]; then echo "unknown"; else echo $test; fi;
+    - if [[ -z "${test}" ]]; then echo "unknown"; else echo $test; fi
